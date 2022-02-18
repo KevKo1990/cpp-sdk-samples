@@ -3,6 +3,7 @@
 
 #include <opencv2/highgui/highgui.hpp>
 #include <iomanip>
+#include <iostream>
 
 Visualizer::Visualizer():
   GREEN_COLOR_CLASSIFIERS({
@@ -239,7 +240,7 @@ void Visualizer::showImage()
 	bool bSuccess = cv::imwrite("test.jpg", img);
 	if ( !bSuccess )
     {
-         std::cout << "ERROR : Failed to save the image jpg"<< std::endl;
+         std::cout << "ERROR : Failed to save the image"<< std::endl;
     }
 }
 
