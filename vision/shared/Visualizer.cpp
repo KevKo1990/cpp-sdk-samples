@@ -236,14 +236,18 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	cv::Mat img_test(650, 600, CV_16UC3, cv::Scalar(0,50000, 50000));
-	std::string str_target="test.jpg";
-	bool bSuccess = cv::imwrite(str_target, img);
+	if(img.empty())
+    {
+        std::cout << "Could not read the image: " << image_path << std::endl;
+        return 1;
+    }
+	cv::imshow("Display window", img);
+    int k = cv::waitKey(0);
+	bool bSuccess = cv::imwrite("test.jpg", img);
 	if ( !bSuccess )
     {
          std::cout << "ERROR : Failed to save the image jpg"<< std::endl;
          //system("pause"); //wait for a key press
-		 cv::imwrite(str_target, img_test);
     }
 	else {
 		std::cout << "SUCCESS : Saved the image"<< std::endl;
