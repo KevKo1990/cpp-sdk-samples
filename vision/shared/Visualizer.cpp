@@ -235,7 +235,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	cv::imwrite("//video/test.jpg", img)
+	cv::imwrite("//video/test.jpg", img);
     // cv::imshow("analyze video", img);
     // cv::waitKey(5);
 }
