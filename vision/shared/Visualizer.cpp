@@ -241,7 +241,7 @@ void Visualizer::showImage()
 	if (fw.is_open())
     {
 		fw << "test";
-		fw.close()
+		fw.close();
 	}
 	else std::cout << "Problem with opening file" << std::endl;
 	
