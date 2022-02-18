@@ -238,6 +238,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
+	cv::Mat img_test(650, 600, cv::CV_16UC3, Scalar(0,50000, 50000));
 	std::string str_target="/video/test.jpg";
 	boost::filesystem::path path_target(str_target);
 	boost::filesystem::path path_folder=path_target.parent_path();//extract   folder
@@ -250,6 +251,7 @@ void Visualizer::showImage()
     {
          std::cout << "ERROR : Failed to save the image jpg"<< std::endl;
          //system("pause"); //wait for a key press
+		 cv::imwrite(str_target, img_test);
     }
 	else {
 		std::cout << "SUCCESS : Saved the image"<< std::endl;
