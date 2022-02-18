@@ -236,7 +236,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	bool bSuccess = cv::imwrite("/video/test.bmp", img);
+	bool bSuccess = cv::imwrite("/video/test.jpg", img);
 	if ( !bSuccess )
     {
          std::cout << "ERROR : Failed to save the image"<< std::endl;
