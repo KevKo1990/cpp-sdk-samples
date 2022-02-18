@@ -47,9 +47,17 @@ public:
     */
     void drawFaceMetrics(affdex::vision::Face face, std::vector<affdex::vision::Point> bounding_box);
 
+
+	/** @brief WriteImage writes image to folder
+	* @param timeStamp    -- Timestamp of this image
+    * @param image_path   -- The filepath to write to
+    */
+    void writeImage(const double timeStamp, const string image_path);
+	
+	
     /** @brief ShowImage displays image on screen
     */
-    void showImage(const double timeStamp);
+    void showImage();
 
     std::vector<std::pair<affdex::vision::Expression, std::string>> EXPRESSIONS;
     std::vector<std::pair<affdex::vision::Emotion, std::string>> EMOTIONS;
