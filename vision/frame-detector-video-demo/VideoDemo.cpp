@@ -165,7 +165,7 @@ int main(int argsc, char ** argsv) {
 		
 		boost::filesystem::path img_path(video_path);
 		img_path.replace_extension("");
-		img_path_string = img_path.string();
+		std::string img_path_string = img_path.string();
 
         if (!csv_file_stream.is_open()) {
             std::cerr << "Unable to open csv file " << csv_path << std::endl;
