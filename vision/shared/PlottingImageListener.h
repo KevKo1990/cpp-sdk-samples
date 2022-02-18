@@ -140,7 +140,7 @@ public:
             viz.drawFaceMetrics(f, bbox);
         }
 
-        viz.writeImage(image.getTimestamp(), img_path);
+        viz.writeImage(image.getTimestamp(), img_folder);
     }
 
     void processResults() {
@@ -188,7 +188,7 @@ public:
 
 private:
     bool draw_display;
-	std::string img_path;
+	std::string img_folder;
 	
     std::mutex mtx;
     std::mutex result_mtx;

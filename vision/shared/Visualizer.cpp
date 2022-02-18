@@ -234,10 +234,11 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
     }
 }
 
-void Visualizer::writeImage(const double timeStamp, const std::string image_path)
+void Visualizer::writeImage(const double timeStamp, const std::string img_folder)
 {
 	// This writes to the specified path
-    std::string path = image_path + "_" + std::to_string(timeStamp) + ".jpg";
+	cv::utils::fs::createDirectory(img_folder);
+    std::string path = img_folder + "/" + std::to_string(timeStamp) + ".jpg";
 	cv::imwrite(path, img);
 }
 

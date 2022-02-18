@@ -99,7 +99,7 @@ int main(int argsc, char ** argsv) {
     unsigned int processing_frame_rate = 0;
     bool draw_display;
     unsigned int num_faces;
-	string img_path_str;
+	string img_folder_str;
 
     namespace po = boost::program_options; // abbreviate namespace
 
@@ -163,9 +163,8 @@ int main(int argsc, char ** argsv) {
         csv_path.replace_extension(".csv");
         std::ofstream csv_file_stream(csv_path.c_str());
 		
-		boost::filesystem::path img_path(video_path);
-		img_path.replace_extension("");
-		std::string img_path_string = img_path.string();
+		boost::filesystem::path img_folder(video_path);
+		std::string img_folder_string = boost::filesystem::change_extension(img_folder, "").string();
 
         if (!csv_file_stream.is_open()) {
             std::cerr << "Unable to open csv file " << csv_path << std::endl;
@@ -186,7 +185,7 @@ int main(int argsc, char ** argsv) {
         vision::FrameDetector detector(data_dir, processing_frame_rate, num_faces);
 
         // prepare listeners
-        PlottingImageListener image_listener(csv_file_stream, draw_display, img_path_string);
+        PlottingImageListener image_listener(csv_file_stream, draw_display, img_folder_string);
         StatusListener status_listener;
 
         if (!image_listener.validate(detector.getSupportedExpressions()) ||

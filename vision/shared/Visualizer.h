@@ -50,9 +50,9 @@ public:
 
 	/** @brief WriteImage writes image to folder
 	* @param timeStamp    -- Timestamp of this image
-    * @param image_path   -- The filepath to write to
+    * @param img_folder   -- The filepath to write to
     */
-    void writeImage(const double timeStamp, const std::string image_path);
+    void writeImage(const double timeStamp, const std::string img_folder);
 	
 	
     /** @brief ShowImage displays image on screen
