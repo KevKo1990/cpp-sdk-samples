@@ -238,8 +238,7 @@ void Visualizer::showImage()
 {
 	if(img.empty())
     {
-        std::cout << "Could not read the image: " << image_path << std::endl;
-        return 1;
+        std::cout << "Could not read the image" << std::endl;
     }
 	cv::imshow("Display window", img);
     int k = cv::waitKey(0);
