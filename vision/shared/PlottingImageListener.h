@@ -21,7 +21,7 @@ public:
 
     PlottingImageListener(std::ofstream &csv, bool draw_display, const string image_path_str) :
         draw_display(draw_display),
-		image_path = image_path_str,
+		image_path(image_path_str),
         capture_last_ts(0),
         capture_fps(-1.0f),
         process_last_ts(0),
