@@ -19,13 +19,13 @@ class PlottingImageListener : public vision::ImageListener {
 
 public:
 
-    PlottingImageListener(std::ofstream &csv, bool draw_display, const std::string img_folder_str) :
+    PlottingImageListener(std::ofstream &csv, bool draw_display, std::string img_folder_str):
         draw_display(draw_display),
         capture_last_ts(0),
         capture_fps(-1.0f),
         process_last_ts(0),
         process_fps(-1.0f),
-		std::string img_folder (img_folder_str),
+		img_folder(img_folder_str),
         out_stream(csv),
         start(std::chrono::system_clock::now()) {
         out_stream << "TimeStamp,faceId,upperLeftX,upperLeftY,lowerRightX,lowerRightY,confidence,interocularDistance,";
