@@ -237,7 +237,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	ofstream fw("CPlusPlusSampleFile.txt", std::ofstream::out);
+	std::ofstream fw("CPlusPlusSampleFile.txt", std::ofstream::out);
 	if (fw.is_open())
     {
 		fw << "test";
