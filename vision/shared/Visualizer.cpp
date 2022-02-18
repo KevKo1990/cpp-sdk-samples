@@ -3,6 +3,7 @@
 
 #include <opencv2/highgui/highgui.hpp>
 #include <iomanip>
+#include <iostream>
 
 Visualizer::Visualizer():
   GREEN_COLOR_CLASSIFIERS({
