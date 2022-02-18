@@ -4,6 +4,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
 
 Visualizer::Visualizer():
   GREEN_COLOR_CLASSIFIERS({
@@ -236,20 +237,21 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	if(img.empty())
+	ofstream fw("CPlusPlusSampleFile.txt", std::ofstream::out);
+	if (fw.is_open())
     {
-        std::cout << "Could not read the image" << std::endl;
-    }
-	cv::imshow("Display window", img);
-    int k = cv::waitKey(0);
+		fw << "test";
+		fw.close()
+	}
+	else std::cout << "Problem with opening file" << std::endl;
+	
 	bool bSuccess = cv::imwrite("test.jpg", img);
 	if ( !bSuccess )
     {
          std::cout << "ERROR : Failed to save the image jpg"<< std::endl;
-         //system("pause"); //wait for a key press
     }
 	else {
-		std::cout << "SUCCESS : Saved the image"<< std::endl;
+		std::cout << "SUCCESS : Saved the image" << std::endl;
 	}
 }
 
