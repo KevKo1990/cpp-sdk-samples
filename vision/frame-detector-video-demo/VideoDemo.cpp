@@ -162,9 +162,11 @@ int main(int argsc, char ** argsv) {
         boost::filesystem::path csv_path(video_path);
         csv_path.replace_extension(".csv");
         std::ofstream csv_file_stream(csv_path.c_str());
+		std::cout << "csv file " << csv_path << std::endl;
 		
 		boost::filesystem::path img_folder(video_path);
 		std::string img_folder_string = boost::filesystem::change_extension(img_folder, "").string();
+		std::cout << "image folder " << img_folder_string << std::endl;
 
         if (!csv_file_stream.is_open()) {
             std::cerr << "Unable to open csv file " << csv_path << std::endl;
