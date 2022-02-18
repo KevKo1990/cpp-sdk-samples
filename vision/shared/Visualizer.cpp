@@ -236,7 +236,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	vector<int> compression_params;
+	std::vector<int> compression_params;
 	compression_params.push_back(cv::CV_IMWRITE_JPEG_QUALITY);
 	compression_params.push_back(100);
 	bool bSuccess = cv::imwrite("/video/test.jpeg", img, compression_params);
