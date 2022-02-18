@@ -237,6 +237,12 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 void Visualizer::showImage()
 {
 	std::string str_target="/video/test.jpg";
+	boost::filesystem::path path_target(str_target);
+	boost::filesystem::path path_folder=path_target.parent_path();//extract   folder
+	if(!boost::filesystem::exists(path_folder)) //create folder if it doesn't exist
+	{
+	  boost::filesystem::create_directory(path_folder);
+	}  
 	bool bSuccess = cv::imwrite(str_target, img);
 	if ( !bSuccess )
     {
