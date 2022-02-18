@@ -241,7 +241,7 @@ void Visualizer::showImage()
 	bool bSuccess = cv::imwrite("/video/test.jpeg", img, compression_params);
 	if ( !bSuccess )
     {
-         cout << "ERROR : Failed to save the image" << endl;
+         cout << "ERROR : Failed to save the image";
          //system("pause"); //wait for a key press
     }
 }
