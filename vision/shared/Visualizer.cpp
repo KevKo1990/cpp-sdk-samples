@@ -4,8 +4,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iomanip>
 #include <iostream>
-#include <boost/filesystem.hpp>
-#include <boost/program_options.hpp>
 
 Visualizer::Visualizer():
   GREEN_COLOR_CLASSIFIERS({
@@ -239,13 +237,7 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 void Visualizer::showImage()
 {
 	cv::Mat img_test(650, 600, CV_16UC3, cv::Scalar(0,50000, 50000));
-	std::string str_target="/video/test.jpg";
-	boost::filesystem::path path_target(str_target);
-	boost::filesystem::path path_folder=path_target.parent_path();//extract   folder
-	if(!boost::filesystem::exists(path_folder)) //create folder if it doesn't exist
-	{
-	  boost::filesystem::create_directory(path_folder);
-	}  
+	std::string str_target="test.jpg";
 	bool bSuccess = cv::imwrite(str_target, img);
 	if ( !bSuccess )
     {
