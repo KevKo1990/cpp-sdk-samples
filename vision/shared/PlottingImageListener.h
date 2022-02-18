@@ -19,8 +19,9 @@ class PlottingImageListener : public vision::ImageListener {
 
 public:
 
-    PlottingImageListener(std::ofstream &csv, bool draw_display) :
+    PlottingImageListener(std::ofstream &csv, bool draw_display, const string image_path_str) :
         draw_display(draw_display),
+		image_path = image_path_str,
         capture_last_ts(0),
         capture_fps(-1.0f),
         process_last_ts(0),
@@ -139,7 +140,7 @@ public:
             viz.drawFaceMetrics(f, bbox);
         }
 
-        viz.showImage();
+        viz.showImage(image.getTimestamp(), img_path);
     }
 
     void processResults() {
@@ -187,6 +188,8 @@ public:
 
 private:
     bool draw_display;
+	string img_path
+	
     std::mutex mtx;
     std::mutex result_mtx;
     std::condition_variable result_received;

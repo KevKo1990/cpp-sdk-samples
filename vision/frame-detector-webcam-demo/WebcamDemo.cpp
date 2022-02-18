@@ -30,6 +30,7 @@ int main(int argsc, char ** argsv) {
         int camera_id;
         unsigned int num_faces;
         bool draw_display = true;
+		const string img_path_str = "/webcam";
 
         const int precision = 2;
         std::cerr.precision(precision);
@@ -85,9 +86,10 @@ int main(int argsc, char ** argsv) {
         // create the FrameDetector
         vision::FrameDetector frame_detector(data_dir, process_framerate, num_faces);
 
+
         // prepare listeners
         std::ofstream csvFileStream;
-        PlottingImageListener image_listener(csvFileStream, draw_display);
+        PlottingImageListener image_listener(csvFileStream, draw_display, img_path_str);
         AFaceListener face_listener;
         StatusListener status_listener;
 

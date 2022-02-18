@@ -234,14 +234,17 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
     }
 }
 
+void Visualizer::writeImage(const double timeStamp, const string image_path)
+{
+	// This writes to the specified path
+    std::string path = image_path + "_" + std::to_string(timeStamp) + ".jpg";
+	cv::imwrite(path, img);
+}
+
 void Visualizer::showImage()
 {
-
-	bool bSuccess = cv::imwrite("test.jpg", img);
-	if ( !bSuccess )
-    {
-         std::cout << "ERROR : Failed to save the image"<< std::endl;
-    }
+	cv::imshow("analyze video", img);
+    cv::waitKey(5);
 }
 
 void Visualizer::overlayImage(const cv::Mat &foreground, cv::Mat &background, cv::Point2i location)
