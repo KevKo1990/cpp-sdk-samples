@@ -25,6 +25,7 @@ public:
         capture_fps(-1.0f),
         process_last_ts(0),
         process_fps(-1.0f),
+		std::string img_folder (img_folder_str),
         out_stream(csv),
         start(std::chrono::system_clock::now()) {
         out_stream << "TimeStamp,faceId,upperLeftX,upperLeftY,lowerRightX,lowerRightY,confidence,interocularDistance,";
@@ -34,7 +35,6 @@ public:
         out_stream << std::endl;
         out_stream.precision(4);
         out_stream << std::fixed;
-		std::string img_folder (img_folder_str);
     }
 
     double getProcessingFrameRate() {
