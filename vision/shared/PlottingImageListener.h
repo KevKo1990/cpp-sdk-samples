@@ -188,7 +188,7 @@ public:
 
 private:
     bool draw_display;
-	std::string img_path
+	std::string img_path;
 	
     std::mutex mtx;
     std::mutex result_mtx;
