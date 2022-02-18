@@ -52,7 +52,7 @@ public:
 	* @param timeStamp    -- Timestamp of this image
     * @param image_path   -- The filepath to write to
     */
-    void writeImage(const double timeStamp, const string image_path);
+    void writeImage(const double timeStamp, const std::string image_path);
 	
 	
     /** @brief ShowImage displays image on screen

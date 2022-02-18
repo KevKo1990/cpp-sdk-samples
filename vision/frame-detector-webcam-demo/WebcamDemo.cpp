@@ -30,7 +30,7 @@ int main(int argsc, char ** argsv) {
         int camera_id;
         unsigned int num_faces;
         bool draw_display = true;
-		const string img_path_str = "/webcam";
+		const std::string img_path_str = "/webcam";
 
         const int precision = 2;
         std::cerr.precision(precision);

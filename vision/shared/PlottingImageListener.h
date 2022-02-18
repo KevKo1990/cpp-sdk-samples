@@ -19,7 +19,7 @@ class PlottingImageListener : public vision::ImageListener {
 
 public:
 
-    PlottingImageListener(std::ofstream &csv, bool draw_display, const string image_path_str) :
+    PlottingImageListener(std::ofstream &csv, bool draw_display, const std::string image_path_str) :
         draw_display(draw_display),
 		image_path(image_path_str),
         capture_last_ts(0),
@@ -188,7 +188,7 @@ public:
 
 private:
     bool draw_display;
-	string img_path
+	std::string img_path
 	
     std::mutex mtx;
     std::mutex result_mtx;
