@@ -235,9 +235,15 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	cv::imwrite("/video/test.png", img);
-    // cv::imshow("analyze video", img);
-    // cv::waitKey(5);
+	vector<int> compression_params;
+	compression_params.push_back(cv::CV_IMWRITE_JPEG_QUALITY);
+	compression_params.push_back(100);
+	bool bSuccess = cv::imwrite("/video/test.jpeg", img, compression_params);
+	if ( !bSuccess )
+    {
+         cout << "ERROR : Failed to save the image" << endl;
+         //system("pause"); //wait for a key press
+    }
 }
 
 void Visualizer::overlayImage(const cv::Mat &foreground, cv::Mat &background, cv::Point2i location)
