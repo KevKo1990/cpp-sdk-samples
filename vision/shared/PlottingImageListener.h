@@ -19,7 +19,7 @@ class PlottingImageListener : public vision::ImageListener {
 
 public:
 
-    PlottingImageListener(std::ofstream &csv, bool draw_display, const std::string image_path_str) :
+    PlottingImageListener(std::ofstream &csv, bool draw_display, const std::string img_folder_str) :
         draw_display(draw_display),
         capture_last_ts(0),
         capture_fps(-1.0f),
@@ -34,7 +34,7 @@ public:
         out_stream << std::endl;
         out_stream.precision(4);
         out_stream << std::fixed;
-		std::string image_path (image_path_str);
+		std::string img_folder (img_folder_str);
     }
 
     double getProcessingFrameRate() {
@@ -51,6 +51,11 @@ public:
         std::lock_guard<std::mutex> lg(mtx);
         return results.size();
     }
+	
+	std::string getImgFolder() {
+		std::lock_guard<std::mutex> lg(mtx);
+		return img_folder;
+	}
 
     std::pair<vision::Frame, std::map<vision::FaceId, vision::Face>> getData() {
         std::lock_guard<std::mutex> lg(mtx);
@@ -140,7 +145,7 @@ public:
             viz.drawFaceMetrics(f, bbox);
         }
 
-        viz.writeImage(image.getTimestamp(), img_folder);
+        viz.writeImage(image.getTimestamp(), getImgFolder());
     }
 
     void processResults() {
@@ -188,7 +193,6 @@ public:
 
 private:
     bool draw_display;
-	std::string img_folder;
 	
     std::mutex mtx;
     std::mutex result_mtx;
@@ -201,6 +205,7 @@ private:
     double process_fps;
     std::ofstream &out_stream;
     std::chrono::time_point<std::chrono::system_clock> start;
+	std::string img_folder;
 
     Visualizer viz;
 
