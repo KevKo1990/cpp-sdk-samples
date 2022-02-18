@@ -4,6 +4,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iomanip>
 #include <iostream>
+#include <boost/filesystem.hpp>
+#include <boost/program_options.hpp>
 
 Visualizer::Visualizer():
   GREEN_COLOR_CLASSIFIERS({
