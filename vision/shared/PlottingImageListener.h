@@ -140,7 +140,7 @@ public:
             viz.drawFaceMetrics(f, bbox);
         }
 
-        viz.showImage(image.getTimestamp(), img_path);
+        viz.writeImage(image.getTimestamp(), img_path);
     }
 
     void processResults() {
