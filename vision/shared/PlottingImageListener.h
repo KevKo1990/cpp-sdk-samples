@@ -34,7 +34,7 @@ public:
         out_stream << std::endl;
         out_stream.precision(4);
         out_stream << std::fixed;
-		image_path (image_path_str);
+		std::string image_path (image_path_str);
     }
 
     double getProcessingFrameRate() {
