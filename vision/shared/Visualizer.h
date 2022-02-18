@@ -49,7 +49,7 @@ public:
 
     /** @brief ShowImage displays image on screen
     */
-    void showImage();
+    void showImage(const double timeStamp);
 
     std::vector<std::pair<affdex::vision::Expression, std::string>> EXPRESSIONS;
     std::vector<std::pair<affdex::vision::Emotion, std::string>> EMOTIONS;

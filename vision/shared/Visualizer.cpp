@@ -233,9 +233,12 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
     }
 }
 
-void Visualizer::showImage()
+void Visualizer::showImage(const double timeStamp)
 {
-	cv::imwrite("//video/test.jpg", img)
+	// This writes to the specified path
+    std::string path = "/video/" + std::to_string(timeStamp) + ".jpg";
+
+	cv::imwrite("/video/test.jpg", img);
     // cv::imshow("analyze video", img);
     // cv::waitKey(5);
 }

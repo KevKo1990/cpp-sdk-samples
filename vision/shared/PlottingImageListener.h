@@ -139,7 +139,7 @@ public:
             viz.drawFaceMetrics(f, bbox);
         }
 
-        viz.showImage();
+        viz.showImage(image.getTimestamp());
     }
 
     void processResults() {
