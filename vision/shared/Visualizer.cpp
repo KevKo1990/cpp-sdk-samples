@@ -2,7 +2,6 @@
 #include "AffectivaLogo.h"
 
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv2/opencv.hpp>
 #include <iomanip>
 #include <iostream>
 
@@ -237,10 +236,8 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::showImage()
 {
-	std::vector<int> compression_params;
-	compression_params.push_back(cv::CV_IMWRITE_JPEG_QUALITY);
-	compression_params.push_back(100);
-	bool bSuccess = cv::imwrite("/video/test.jpeg", img, compression_params);
+
+	bool bSuccess = cv::imwrite("/video/test.bmp", img);
 	if ( !bSuccess )
     {
          std::cout << "ERROR : Failed to save the image"<< std::endl;
