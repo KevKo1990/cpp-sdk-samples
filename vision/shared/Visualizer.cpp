@@ -238,8 +238,6 @@ void Visualizer::drawHeadOrientation(std::map<affdex::vision::Measurement, float
 
 void Visualizer::writeImage(const double timeStamp, const std::string img_folder)
 {
-	// This writes to the specified path
-	std::cout << "Write images to folder: " << img_folder << std::endl;
 	boost::filesystem::create_directories(img_folder);
     std::string path = img_folder + "/" + std::to_string(timeStamp) + ".jpg";
 	cv::imwrite(path, img);
