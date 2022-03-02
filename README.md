@@ -1,5 +1,9 @@
 # Sample Apps for Affectiva's Automotive SDK
 
+This SDK was provided by Affectiva, however, I made smaller changes to it. One can now save the annotated images.
+
+# Original text
+
 Welcome to our repository on GitHub! Here you will find example code to get you started with our Automotive Linux SDK 1.1. Documentation for the SDKs is available [here](https://auto.affectiva.com).
 
 Build Status
